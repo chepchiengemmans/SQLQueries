@@ -95,7 +95,7 @@ df_mass_moon
 # %%
 # CodeGrade step5
 # Replace None with your code
-df_blue = pd.read_sql("""SELECT name, color FROM planets WHERE color = 'blue'; """, conn1)
+df_blue = pd.read_sql("""SELECT name, color FROM planets WHERE color LIKE '%blue%'; """, conn1)
 df_blue
 
 # %% [markdown]
@@ -216,7 +216,7 @@ df_teams_years
 # %%
 # CodeGrade step12
 # Replace None with your code
-df_at_bats = pd.read_sql("""SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team; """, conn3)
+df_at_bats = pd.read_sql("""SELECT team, AVG(at_bats) AS average_at_bats FROM babe_ruth_stats GROUP BY team ORDER BY average_at_bats DESC; """, conn3)
 df_at_bats
 
 # %% [markdown]
