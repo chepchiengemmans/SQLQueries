@@ -83,8 +83,9 @@ df_mass
 # %%
 # CodeGrade step4
 # Replace None with your code
-df_mass_moon = pd.read_sql("""SELECT * FROM planets WHERE mass <= 1.00 AND num_of_moons > 0; """, conn1)
+df_mass_moon = pd.read_sql("""SELECT * FROM planets WHERE mass < 1.00 AND num_of_moons > 0; """, conn1)
 df_mass_moon
+#(df_mass_moon.shape == (1, 6))
 
 # %% [markdown]
 # ### Step 5
@@ -145,7 +146,8 @@ df_hungry_ages
 # %%
 # CodeGrade step8
 # Replace None with your code
-df_4_oldest = pd.read_sql("""SELECT name,age,breed FROM (SELECT * FROM dogs ORDER BY age DESC LIMIT 4) AS subquery ORDER BY breed; """, conn2)
+#df_4_oldest = pd.read_sql("""SELECT name,age,breed FROM (SELECT * FROM dogs ORDER BY age DESC LIMIT 4) AS subquery ORDER BY breed; """, conn2)
+df_4_oldest = pd.read_sql("""SELECT name,age,breed FROM dogs ORDER BY age DESC LIMIT 4; """, conn2)
 df_4_oldest
 
 # %% [markdown]
@@ -203,7 +205,7 @@ df_hr_total
 # %%
 # CodeGrade step11
 # Replace None with your code
-df_teams_years = pd.read_sql("""SELECT team, COUNT(year) AS years_played FROM babe_ruth_stats  GROUP BY team;""",conn3)
+df_teams_years = pd.read_sql("""SELECT team, COUNT(year) AS number_years FROM babe_ruth_stats  GROUP BY team;""",conn3)
 df_teams_years
 
 # %% [markdown]
